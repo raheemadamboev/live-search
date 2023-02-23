@@ -74,3 +74,13 @@ dependencies {
     // lifecycle
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
 }
+
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            freeCompilerArgs += [
+                    "-opt-in=kotlinx.coroutines.FlowPreview"
+            ]
+        }
+    }
+}
